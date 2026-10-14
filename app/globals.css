@@ -772,3 +772,23 @@ blockquote.paragraph-small{font-size:1.9vw;line-height:102%}
 }
 
 @media (max-width:767px){.texture-block{opacity:.38}}
+
+/* ===== phones: keep hero text clear of the eye, fit the big headings ===== */
+@media (max-width:767px){
+  .hero-eye-fallback{left:22vw;right:auto;width:56vw;top:26vw;z-index:1}
+  .hero-layout>.paragraph-xlarge.has-indent{margin-top:92vw}
+  .hero-right{margin-top:7vw}
+  .hero-right .heading-xsmall{position:static!important;margin-bottom:2vw;top:auto!important}
+  .smile-icon{display:none}
+  .soc--ig{left:6vw;top:34vw}
+  .soc--yt{right:6vw;top:30vw}
+  .soc--fb{left:auto;right:10vw;top:78vw}
+  .hero-divider{position:static;margin:5vw 0 0}
+  .reasons-section .heading-xlarge{font-size:19vw;line-height:100%}
+  .pink-button-wrapper.is--language{width:17vw;min-width:17vw;flex:none}
+  .button-block{justify-content:flex-start}
+  .reasons-section .heading-xlarge.has--minus-margin{margin-top:-1vw}
+}
+@media (max-width:360px){
+  .reasons-section .heading-xlarge{font-size:18vw}
+}
