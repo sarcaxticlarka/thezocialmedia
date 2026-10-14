@@ -26,9 +26,9 @@ export default function Nav() {
     // After the preloader: navbar fades in (0.8s, 0.6 delay), tiles rise (translateY 100% -> 0, 0.8s ease-in-out)
     const go = () => {
       const tl = gsap.timeline();
-      tl.fromTo(root.current, { opacity: 0 }, { opacity: 1, duration: 0.8, delay: 0.6, ease: 'power2.out' }, 0);
-      tl.fromTo('.mobile-logo-block', { opacity: 0 }, { opacity: 1, duration: 0.8, delay: 0.6, ease: 'power2.out' }, 0);
-      tl.fromTo('.tile-rise', { yPercent: 100 }, { yPercent: 0, duration: 0.8, ease: 'power1.inOut', stagger: 0.1 }, 0.9);
+      tl.fromTo(root.current, { opacity: 0 }, { opacity: 1, duration: 0.6, delay: 0.2, ease: 'power2.out' }, 0);
+      tl.fromTo('.mobile-logo-block', { opacity: 0 }, { opacity: 1, duration: 0.6, delay: 0.2, ease: 'power2.out' }, 0);
+      tl.fromTo('.tile-rise', { yPercent: 100 }, { yPercent: 0, duration: 0.7, ease: 'power1.inOut', stagger: 0.1 }, 0.4);
     };
     gsap.set(root.current, { opacity: 0 });
     gsap.set('.tile-rise', { yPercent: 100 });

@@ -68,7 +68,7 @@ strong{font-weight:700}
 .paper-div{position:absolute;inset:0;width:100%;height:100%;display:block}
 .marquee-wrapper_preloader{position:relative;z-index:2;display:flex;visibility:hidden;width:100%;overflow:hidden}
 .marquee-block_preloader{display:flex;flex:none;will-change:transform}
-.marquee-block_preloader.run{animation:marqueeAnimationPreloader 12s linear forwards}
+.marquee-block_preloader.run{animation:marqueeAnimationPreloader 5s linear forwards}
 .marquee-part_team{display:flex;align-items:center;flex:none;overflow:hidden}
 .marquee-part_team .heading-large{color:var(--white);white-space:nowrap;overflow:hidden;padding-bottom:.4vw}
 .marquee-icon{width:6vw;height:auto;margin:0 2.5vw;flex:none}

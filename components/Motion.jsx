@@ -35,8 +35,8 @@ export default function Motion() {
 
       // ---- hero hairline + bottom block (after preloader) ----
       const heroIntro = () => {
-        gsap.to('.hero-bottom-block', { opacity: 1, duration: 0.6, delay: 0.8, ease: 'power1.out' });
-        gsap.fromTo('.hero-divider', { scaleX: 0 }, { scaleX: 1, duration: 1, delay: 1, ease: 'power1.out' });
+        gsap.to('.hero-bottom-block', { opacity: 1, duration: 0.6, delay: 0.5, ease: 'power1.out' });
+        gsap.fromTo('.hero-divider', { scaleX: 0 }, { scaleX: 1, duration: 1, delay: 0.6, ease: 'power1.out' });
       };
       if (reduce) gsap.set('.hero-bottom-block', { opacity: 1 });
 

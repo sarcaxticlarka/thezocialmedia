@@ -24,16 +24,16 @@ export default function Hero() {
       <div className="container">
         <div className="content-block is--hero">
           <div className="hero-layout">
-            <p data-animate-p="" data-lines="" data-indent="" data-first-load="" data-delay="2" className="paragraph-xlarge has-indent line-padding">
+            <p data-animate-p="" data-lines="" data-indent="" data-first-load="" data-delay="0.35" className="paragraph-xlarge has-indent line-padding">
               <span className="line">We’re not</span><span className="line">an agency,</span><span className="line">we’re a team</span><span className="line">of <strong>artists</strong></span>
             </p>
             <div className="hero-text-wrapper hero-right">
               <h2 className="heading-xsmall is--absolute" style={{ top: '-2.4vw', left: 0 }}>[zocial]</h2>
               <div className="hero-divider" />
-              <p data-animate-p="" data-lines="" data-first-load="" data-delay="2.5" className="paragraph-xlarge line-padding">
+              <p data-animate-p="" data-lines="" data-first-load="" data-delay="0.6" className="paragraph-xlarge line-padding">
                 <span className="line">For</span><span className="line">every</span><span className="line"><strong>business</strong></span>
               </p>
-              <p data-animate-p="" data-first-load="" data-delay="2.75" className="paragraph-default has--color-black has--align-right has--smaller-width">
+              <p data-animate-p="" data-first-load="" data-delay="0.8" className="paragraph-default has--color-black has--align-right has--smaller-width">
                 a quick, creative and effective story can be found. Contact us &amp; we will shoot it for you!
               </p>
               <svg className="smile-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">

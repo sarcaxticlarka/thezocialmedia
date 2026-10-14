@@ -27,13 +27,12 @@ export default function Preloader() {
     const el = root.current;
     const finish = () => { window.__zocialIntro = true; window.dispatchEvent(new Event('zocial:intro')); };
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let seen = false;
-    try { seen = !!sessionStorage.getItem('animationPlayed'); } catch {}
-
-    // Returning visitor (or reduced motion): skip, start the hero after a beat (original waits 1s on desktop)
-    if (seen || reduce) {
+    // Plays on every full page load / refresh. window state resets on refresh but survives in-site navigation,
+    // so coming back to Home from /customers doesn't replay it.
+    const booted = !!window.__zocialBooted;
+    if (booted || reduce) {
       el.remove();
-      setTimeout(finish, reduce ? 0 : innerWidth >= 768 ? 1000 : 0);
+      setTimeout(finish, 0);
       return;
     }
 
@@ -46,11 +45,11 @@ export default function Preloader() {
     window.addEventListener('keydown', keys, { passive: false });
     lenis()?.stop();
 
-    try { pt = new PaperTransition(canvas.current, { color: '#e3262e', duration: 1.2 }); pt.set(1); } catch { canvas.current.style.display = 'none'; el.style.background = '#e3262e'; }
+    try { pt = new PaperTransition(canvas.current, { color: '#e3262e', duration: 0.9 }); pt.set(1); } catch { canvas.current.style.display = 'none'; el.style.background = '#e3262e'; }
 
     const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     (async () => {
-      await wait(1500);
+      await wait(250);
       if (cancelled) return;
       wrap.current.style.visibility = 'visible';
       track.current.classList.add('run');
@@ -59,18 +58,18 @@ export default function Preloader() {
 
       // intro: chars rise, icons spin in
       const intro = gsap.timeline();
-      elements.forEach((e) => intro.from(e.querySelectorAll('.char'), { y: '100%', opacity: 0.5, duration: 0.5, ease: 'circ.inOut', stagger: 0.1 }, 0));
-      intro.fromTo('.marquee-icon', { scale: 0, opacity: 0, rotate: -45 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.6, ease: 'circ.inOut' }, '<+=0.5');
+      elements.forEach((e) => intro.from(e.querySelectorAll('.char'), { y: '100%', opacity: 0.5, duration: 0.4, ease: 'circ.inOut', stagger: 0.045 }, 0));
+      intro.fromTo('.marquee-icon', { scale: 0, opacity: 0, rotate: -45 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.45, ease: 'circ.inOut' }, '<+=0.25');
       await intro.then();
-      await wait(2000);
+      await wait(650);
       if (cancelled) return;
 
       // outro: chars lift out, icons spin away
       const outro = gsap.timeline();
-      elements.forEach((e) => outro.to(e.querySelectorAll('.char'), { y: '-100%', opacity: 0, duration: 0.55, ease: 'circ.inOut', stagger: 0.1 }, 0));
-      outro.to('.marquee-icon', { scale: 0, opacity: 0, rotate: 45, delay: 0.8, duration: 0.6, ease: 'circ.inOut' }, 0);
+      elements.forEach((e) => outro.to(e.querySelectorAll('.char'), { y: '-100%', opacity: 0, duration: 0.4, ease: 'circ.inOut', stagger: 0.04 }, 0));
+      outro.to('.marquee-icon', { scale: 0, opacity: 0, rotate: 45, delay: 0.25, duration: 0.4, ease: 'circ.inOut' }, 0);
       await outro.then();
-      await wait(200);
+      await wait(60);
       if (cancelled) return;
 
       // rip the paper away, wake the page
@@ -79,8 +78,8 @@ export default function Preloader() {
       window.removeEventListener('keydown', keys);
       lenis()?.start();
       finish();
-      if (pt) await pt.out(1.2); else await gsap.to(el, { yPercent: -100, duration: 1.2, ease: 'sine.inOut' }).then();
-      try { sessionStorage.setItem('animationPlayed', 'true'); } catch {}
+      window.__zocialBooted = true;
+      if (pt) await pt.out(0.9); else await gsap.to(el, { yPercent: -100, duration: 0.9, ease: 'sine.inOut' }).then();
       setTimeout(() => el.remove(), 200);
     })();
 

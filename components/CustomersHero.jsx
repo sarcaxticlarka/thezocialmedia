@@ -10,7 +10,7 @@ export default function CustomersHero() {
         <span id="cust-title" className="sr-only">Who The Zocial Media works with: events, hospitality, festive brands and new businesses</span>
         <CubeText label="Who we work with" lines={[[{ t: 'Who we' }], [{ t: 'work', c: 'has--color-black' }], [{ t: 'with', c: 'has--color-black' }]]} />
         <div className="cust-hero__row">
-          <p data-animate-p="" data-lines="" data-first-load="" data-delay="1.2" data-small-indent="" className="paragraph-large has--indent">
+          <p data-animate-p="" data-lines="" data-first-load="" data-delay="0.5" data-small-indent="" className="paragraph-large has--indent">
             <span className="line">Businesses that want to be seen</span>
             <span className="line">and have something worth showing.</span>
             <span className="line">Here is who we make content for,</span>
