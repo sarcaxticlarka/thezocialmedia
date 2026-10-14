@@ -792,3 +792,14 @@ blockquote.paragraph-small{font-size:1.9vw;line-height:102%}
 @media (max-width:360px){
   .reasons-section .heading-xlarge{font-size:18vw}
 }
+
+/* "THE ZOCIAL MEDIA": small "the" / "media" tucked into the bottom corners of the big word */
+.h1-main{display:block}
+.h1-word{display:block}
+.h1-the,.h1-media{position:absolute;bottom:1vw;font-family:var(--display);font-size:3.4vw;line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--brand-black);opacity:.9}
+.h1-the{left:2.6vw}
+.h1-media{right:2.6vw}
+@media (max-width:767px){
+  .h1-the,.h1-media{font-size:8vw;bottom:1.5vw}
+  .h1-the{left:5vw}.h1-media{right:5vw}
+}

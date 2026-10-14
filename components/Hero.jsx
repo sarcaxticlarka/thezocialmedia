@@ -46,7 +46,7 @@ export default function Hero() {
         </div>
 
         <h1 style={{ margin: 0 }}>
-          <span data-fading="" className="h1-main" aria-hidden="true">zocial</span>
+          <span className="h1-main" aria-hidden="true"><span className="h1-the">the</span><span data-fading="" className="h1-word">zocial</span><span className="h1-media">media</span></span>
           <span className="sr-only">The Zocial Media: social media agency for shoot, content, edit and strategy</span>
         </h1>
 
