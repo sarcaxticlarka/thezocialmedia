@@ -10,6 +10,15 @@ export default function Hero() {
         <div className="texture-block is--2" />
       </div>
       <EyeCanvas />
+
+      {/* only the platforms we actually post on, floating around the eye */}
+      <div className="hero-socials" aria-hidden="true">
+        <a className="soc soc--ig" href="https://www.instagram.com/thezocialmediaofficial/" target="_blank" rel="noopener me" tabIndex={-1} data-cursor="instagram">
+          <svg viewBox="0 0 48 48"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stopColor="#fdc468"/><stop offset=".35" stopColor="#f0375b"/><stop offset=".7" stopColor="#c0309f"/><stop offset="1" stopColor="#5b51d8"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig)"/><rect x="12" y="12" width="24" height="24" rx="7" fill="none" stroke="#fff" strokeWidth="3"/><circle cx="24" cy="24" r="5.6" fill="none" stroke="#fff" strokeWidth="3"/><circle cx="31.4" cy="16.6" r="1.8" fill="#fff"/></svg>
+        </a>
+        <span className="soc soc--yt"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#ff0000"/><path d="M19.5 16.5v15l13-7.5z" fill="#fff"/></svg></span>
+        <span className="soc soc--fb"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#1877f2"/><path d="M26 38V26h4l.7-4.6H26v-3c0-1.4.6-2.4 2.5-2.4H31V12c-.5 0-2-.2-3.7-.2-3.7 0-6 2.200-6 6.200v3.400H17V26h4.300v12z" fill="#fff"/></svg></span>
+      </div>
       <img src="/eye.svg" alt="" width="500" height="820" className="hero-eye-fallback" />
 
       <div className="container">

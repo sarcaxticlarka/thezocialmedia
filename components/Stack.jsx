@@ -4,38 +4,50 @@ import { STACK } from '@/lib/data';
 import CubeText from './CubeText';
 import Scramble from './Scramble';
 
-// Reviews-style 3D stack. relative-block height = slides * 40vw with a sticky stage; on every scroll frame:
-//   progress = clamp((vh - rect.top) / (vh + rect.height) - .05)
-//   end_i    = .35 + ((n - 1 - i) / (n - 1)) * .65 ; p = min(progress / end_i, 1)
-//   translateZ = -40(n - i) + (60 + 40(n - i)) * p  (vw);   translateX = +-9 * p (vw)
-// Slides alternate left/right. Below 768px it becomes a snap carousel.
+// Reviews-style 3D deck (the original's scroll-driven card stack, retuned so cards land at normal size).
+// Below 768px it becomes a snap carousel.
 export default function Stack() {
   const rel = useRef(null);
 
   useEffect(() => {
     const block = rel.current;
     const slides = [...block.querySelectorAll('.swiper-slide.is--review')];
+    const n = slides.length;
     let ticking = false, on = false;
+    const clamp = (v) => Math.max(0, Math.min(1, v));
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+    // Progress runs while the sticky stage is pinned (0 = pinned at the top, 1 = about to release).
+    // Card i flies out of the depth (translateZ -48vw, small, transparent) to the front (0), settling into a
+    // two-column deck: even cards stack on the left, odd on the right, each one a little lower and more tilted.
     const update = () => {
       const r = block.getBoundingClientRect(), vh = innerHeight;
       if (!(r.top < vh && r.bottom > 0)) return;
-      const prog = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height) - 0.05));
+      const prog = clamp(-r.top / (r.height - vh));
       slides.forEach((s, i) => {
-        const end = 0.35 + ((slides.length - 1 - i) / (slides.length - 1)) * 0.65;
-        const p = Math.min(prog / end, 1);
-        const z0 = -40 * (slides.length - i), z = z0 + (60 - z0) * p;
-        const x = s.classList.contains('is--left') ? -9 * p : 9 * p;
-        s.style.transform = `translateX(${x}vw) translateZ(${z}vw)`;
+        const start = (i / n) * 0.78, t = ease(clamp((prog - start) / 0.3));
+        const side = i % 2 === 0 ? -1 : 1, rank = Math.floor(i / 2);
+        const z = -48 * (1 - t);
+        const x = side * (-rank * 3.2) * t;           // later cards slide toward the middle
+        const y = (rank * 5.2 - 3) * t;
+        const rot = side * (1.8 + rank * 1.6) * t;
+        s.style.opacity = String(clamp(t * 1.6));
+        s.style.zIndex = String(10 + i);
+        s.style.transform = `translate3d(${x}vw, ${y}vw, ${z}vw) rotate(${rot}deg)`;
       });
     };
     const onScroll = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); };
     const setup = () => {
       if (innerWidth >= 768) {
-        block.style.height = `${slides.length * 40}vw`;
-        slides.forEach((s, i) => s.classList.add(i % 2 === 0 ? 'is--right' : 'is--left'));
+        block.style.height = `calc(100vh + ${n * 55}vh)`;
+        slides.forEach((s, i) => { s.classList.toggle('is--right', i % 2 === 0); s.classList.toggle('is--left', i % 2 === 1); });
         if (!on) { addEventListener('scroll', onScroll, { passive: true }); on = true; }
         update();
-      } else { block.style.height = ''; slides.forEach((s) => (s.style.transform = '')); if (on) { removeEventListener('scroll', onScroll); on = false; } }
+      } else {
+        block.style.height = '';
+        slides.forEach((s) => { s.style.transform = ''; s.style.opacity = ''; s.style.zIndex = ''; });
+        if (on) { removeEventListener('scroll', onScroll); on = false; }
+      }
     };
     setup();
     let t; const rs = () => { clearTimeout(t); t = setTimeout(setup, 200); };
