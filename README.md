@@ -1,8 +1,7 @@
 # The Zocial Media
 
-Next.js (App Router) site for **The Zocial Media** ([@thezocialmediaofficial](https://www.instagram.com/thezocialmediaofficial/)),
-built from a point-to-point analysis of lumos-marketing.com. See [`docs/LUMOS-ANALYSIS.md`](docs/LUMOS-ANALYSIS.md) for the full breakdown
-(tokens, backgrounds, every animation with timings and easings).
+Next.js (App Router) site for **The Zocial Media** ([@thezocialmediaofficial](https://www.instagram.com/thezocialmediaofficial/)).
+All copy, imagery and the loader/transition shader are original to this project. Internal research notes on other agency sites live in `docs/reference/` and are not shipped.
 
 ```bash
 npm install

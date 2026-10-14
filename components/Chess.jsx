@@ -34,15 +34,15 @@ export default function Chess() {
         <div className="container">
           <div className="content-block is--relative is-centered has--events-none">
             <div className="chess-note">
-              <Scramble className="paragraph-default has--color-black">{'Guys, let us show you our work!'}</Scramble>
-              <Scramble className="paragraph-default has--color-black">{'One click separates you\nfrom a game-changing solution\nfor your business.'}</Scramble>
+              <Scramble className="paragraph-default has--color-black">{'Want to see more?'}</Scramble>
+              <Scramble className="paragraph-default has--color-black">{'Scroll the feed, then tell us\nwhat you are planning and\nwe will take it from there.'}</Scramble>
             </div>
             <div className="lines-block is--3" aria-hidden="true">
               {[0, 1, 2, 3].map((i) => <div key={i} className="divider has--grow" />)}
             </div>
-            <CubeText className="has--align-center has--larger-width" label="Steal the spotlight from your competitors with Zocial!"
-              lines={[[{ t: 'Steal the' }], [{ t: 'spotlight', c: 'has--color-black' }], [{ t: 'from your' }], [{ t: 'competitors', c: 'has--color-black' }], [{ t: 'with Zocial!' }]]} />
-            <span id="cta-title" className="sr-only">Steal the spotlight from your competitors with Zocial</span>
+            <CubeText className="has--align-center has--larger-width" label="Make your competitors hit replay."
+              lines={[[{ t: 'Make your' }], [{ t: 'competitors', c: 'has--color-black' }], [{ t: 'hit replay.' }]]} />
+            <span id="cta-title" className="sr-only">Make your competitors hit replay</span>
 
             <div className="drip-stage" aria-hidden="true">
               <svg ref={svg} viewBox="0 0 1055 340" preserveAspectRatio="xMidYMid meet">

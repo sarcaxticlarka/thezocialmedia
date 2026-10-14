@@ -90,8 +90,8 @@ export default function Heads() {
       <div className="padding-block has--z-index-high">
         <div className="container">
           <div className="content-block is--relative has--perspective">
-            <Scramble as="h2" className="heading-xsmall has--color-black heads-label" slow>{'[Who will\nyou cooperate with?]'}</Scramble>
-            <span id="heads-label" className="sr-only">Who will you cooperate with: the founder, the crew, the editors and the strategists</span>
+            <Scramble as="h2" className="heading-xsmall has--color-black heads-label" slow>{'[Meet the crew\nyou’ll work with]'}</Scramble>
+            <span id="heads-label" className="sr-only">Meet the crew you will work with: the founder, the shooters, the editors and the strategists</span>
 
             <div ref={stage} className="cube-stage">
               <div className="cube-container">
@@ -117,7 +117,7 @@ export default function Heads() {
               <div className="button-lottie-wrapper is--centered">
                 <div className="pink-button-wrapper" data-rise="">
                   <a id="custom-button" className="pink-button is--centered" href="#form" data-cursor="click" onClick={(e) => { e.preventDefault(); scrollToTarget('#form'); }}>
-                    <p className="button-text">lets<br />talk with us!</p>
+                    <p className="button-text">Say hi<br />to the crew</p>
                     <svg className="plus-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 0h4v8h8v4h-8v8H8v-8H0V8h8z" fill="#ececec" /></svg>
                   </a>
                 </div>

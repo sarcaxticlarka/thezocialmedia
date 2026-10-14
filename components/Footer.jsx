@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="content-block">
           <div className="svg-wrapper">
-            <p data-animate-large="" className="footer-heading">hello <span className="has--color-mint">zocial</span></p>
+            <p data-animate-large="" className="footer-heading">stay <span className="has--color-mint">zocial</span></p>
           </div>
 
           <div className="layout has--bottom-margin">

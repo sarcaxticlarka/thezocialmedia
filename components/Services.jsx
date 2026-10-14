@@ -42,7 +42,7 @@ export default function Services() {
               })}
             </div>
             <p className="services-note heading-small" style={{ color: '#ececec', fontSize: '2vw' }}>
-              Not sure what you need? <a className="has--underline" href="#form" data-cursor="click" onClick={(e) => { e.preventDefault(); scrollToTarget('#form'); }}>Choose suitable services</a>
+              Not sure where to start? <a className="has--underline" href="#form" data-cursor="click" onClick={(e) => { e.preventDefault(); scrollToTarget('#form'); }}>Tell us what you’re making</a>
             </p>
           </div>
         </div>

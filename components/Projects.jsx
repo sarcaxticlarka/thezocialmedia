@@ -171,7 +171,7 @@ export default function Projects() {
             <div className="button-lottie-wrapper is--centered">
               <div className="pink-button-wrapper" data-rise="">
                 <a className="pink-button is--centered" href={SITE.instagram} target="_blank" rel="noopener" data-cursor="click">
-                  <p className="button-text">Found yourself<br />among the posts?</p>
+                  <p className="button-text">See more on<br />Instagram</p>
                   <svg className="plus-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 0h4v8h8v4h-8v8H8v-8H0V8h8z" fill="#ececec" /></svg>
                 </a>
               </div>

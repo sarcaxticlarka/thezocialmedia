@@ -12,8 +12,8 @@ const Icon = () => (
 );
 const Part = () => (
   <div className="marquee-part_team">
-    <p data-animate="" className="heading-large">hello zocial</p><Icon />
-    <p data-animate="" className="heading-large">hello zocial</p><Icon />
+    <p data-animate="" className="heading-large">roll camera</p><Icon />
+    <p data-animate="" className="heading-large">roll camera</p><Icon />
   </div>
 );
 

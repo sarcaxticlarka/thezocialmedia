@@ -31,10 +31,10 @@ export default function Hero() {
               <h2 className="heading-xsmall is--absolute" style={{ top: '-2.4vw', left: 0 }}>[zocial]</h2>
               <div className="hero-divider" />
               <p data-animate-p="" data-lines="" data-first-load="" data-delay="0.6" className="paragraph-xlarge line-padding">
-                <span className="line">For</span><span className="line">every</span><span className="line"><strong>business</strong></span>
+                <span className="line">Made</span><span className="line">around</span><span className="line"><strong>your brand</strong></span>
               </p>
               <p data-animate-p="" data-first-load="" data-delay="0.8" className="paragraph-default has--color-black has--align-right has--smaller-width">
-                a quick, creative and effective story can be found. Contact us &amp; we will shoot it for you!
+                Tell us what you sell, who it’s for and where it should be seen. We’ll make something people stop scrolling for.
               </p>
               <svg className="smile-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
                 <circle cx="22" cy="22" r="20" stroke="#191a19" strokeWidth="3" />

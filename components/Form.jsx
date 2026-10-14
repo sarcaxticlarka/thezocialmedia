@@ -72,7 +72,7 @@ export default function Form() {
     setError(err);
     if (err) return;
 
-    const text = `Hello! I’m ${d.name} and I’m contacting you from ${d.company} as the ${d.position}. My phone number is ${d.phone} and email ${d.email}. I’m looking to get your help with ${d.request}.`;
+    const text = `Hi, I’m ${d.name} and I work at ${d.company} as ${d.position}. Call me on ${d.phone} or write to ${d.email}. I’d love to talk about ${d.request}.`;
     const finish = () => { setSent(true); setTimeout(() => f.reset(), 1400); };
     const endpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
     const run = async () => {
@@ -91,32 +91,32 @@ export default function Form() {
       <div className="container">
         <div className="content-block">
           <h2 id="form-title" className="sr-only">Contact The Zocial Media</h2>
-          <div id="form-lumos" className={`form-wrapper${sent ? ' sent' : ''}`}>
+          <div id="form-wrapper" className={`form-wrapper${sent ? ' sent' : ''}`}>
             <form ref={form} className="form-block" noValidate onSubmit={submit}>
               <div className="form-line">
                 <div className="form-line-inner">
-                  <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="name-field">Hello! Iʼm</label>
+                  <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="name-field">Hi, Iʼm</label>
                   <Field id="name-field" name="name" label="Your name" placeholder="your name" autoComplete="name" active={active === 'name-field'} {...common} />
                 </div>
-                <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="company-name-field">and Iʼm contacting you from</label>
+                <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="company-name-field">and I work at</label>
               </div>
               <div className="form-line">
                 <Field id="company-name-field" name="company" label="Company" placeholder="company name" autoComplete="organization" active={active === 'company-name-field'} {...common} />
                 <div className="form-line-inner">
-                  <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="position-field">as the</label>
+                  <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="position-field">as</label>
                   <Field id="position-field" name="position" label="Your role" placeholder="position" autoComplete="organization-title" active={active === 'position-field'} {...common} />
                 </div>
               </div>
               <div className="form-line has--align-left_mobile">
-                <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="phone-field">My phone number is</label>
+                <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="phone-field">Call me on</label>
                 <Field id="phone-field" name="phone" type="tel" label="Phone" placeholder="+91 …" autoComplete="tel" active={active === 'phone-field'} {...common} />
               </div>
               <div className="form-line">
                 <div className="form-line-inner">
-                  <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="email-field">and email</label>
+                  <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="email-field">or write to</label>
                   <Field id="email-field" name="email" type="email" label="Email" placeholder="your email" autoComplete="email" active={active === 'email-field'} {...common} />
                 </div>
-                <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="request-field">Iʼm looking to get your help with</label>
+                <label data-form-animate="" className="paragraph-xlarge has--weight-medium" htmlFor="request-field">Iʼd love to talk about</label>
               </div>
               <div className="form-line">
                 <Field id="request-field" name="request" label="Your request" placeholder="shoot, reels, strategy…" active={active === 'request-field'} {...common} />

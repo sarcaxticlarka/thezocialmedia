@@ -9,7 +9,7 @@ export default function EyeCanvas() {
   const host = useRef(null);
 
   useEffect(() => {
-    if (innerWidth < 600 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (innerWidth < 1100 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let disposed = false, cleanup = () => {};
 
     (async () => {
@@ -18,7 +18,7 @@ export default function EyeCanvas() {
       if (disposed) return;
       const el = host.current;
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1.25));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.setSize(el.offsetWidth, el.offsetHeight);
       el.appendChild(renderer.domElement);

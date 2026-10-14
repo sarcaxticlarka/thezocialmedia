@@ -72,9 +72,9 @@ export default function Reasons() {
         <div className="container">
           <div className="content-block is--relative">
             <div className="h2-wrapper">
-              <h2 id="why-title" className="heading-xlarge has--fixed-width" data-animate-large="">why <span className="has--low-opacity">we</span></h2>
+              <h2 id="why-title" className="heading-xlarge has--fixed-width" data-animate-large="">why <span className="has--low-opacity">people</span></h2>
               <div className="heading-xlarge has--fixed-width has--minus-margin" aria-hidden="true" data-animate-large="">
-                <span className="has--low-opacity">are</span> loved
+                stay with us
               </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function Reasons() {
               <div className="button-lottie-wrapper">
                 <div className="pink-button-wrapper" data-rise="">
                   <a className="pink-button" href="#form" data-cursor="click" onClick={(e) => { e.preventDefault(); scrollToTarget('#form'); }}>
-                    <p className="button-text">Yes, I want to talk<br />with you!</p>
+                    <p className="button-text">Let’s make<br />something</p>
                     <svg className="plus-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 0h4v8h8v4h-8v8H8v-8H0V8h8z" fill="#ececec" /></svg>
                   </a>
                 </div>
@@ -109,7 +109,7 @@ export default function Reasons() {
                 <div className="marquee-block">
                   {[0, 1].map((k) => (
                     <div key={k} className="marquee-part has--bold-text">
-                      {[0, 1, 2, 3].map((n) => <p key={n} className="paragraph-small"><strong>Do you like this approach?</strong></p>)}
+                      {[0, 1, 2, 3].map((n) => <p key={n} className="paragraph-small"><strong>Ready when you are</strong></p>)}
                     </div>
                   ))}
                 </div>
