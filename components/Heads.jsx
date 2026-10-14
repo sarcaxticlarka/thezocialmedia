@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 import { SITE } from '@/lib/data';
 import { scrollToTarget } from '@/lib/lenisStore';
 import Scramble from './Scramble';
@@ -11,24 +12,24 @@ gsap.registerPlugin(ScrollTrigger);
 // Four stops. The photo cube rolls forward, the text cube rolls back, so each scroll step swaps both faces.
 const FACES = [
   {
-    key: 'nevin', name: 'Nevin', tag: '[founder]', no: '[01]', mono: '[N]', img: '/work/p19102538.jpg', alt: 'A small film crew setting up a shot with a camera on a tripod', pos: '50% 40%',
+    key: 'nevin', name: 'Nevin', tag: '[your first call]', no: '[01]', mono: '[N]', img: '/work/p19102538.jpg', alt: 'A small film crew setting up a shot with a camera on a tripod', pos: '50% 40%',
     quote: 'We’re not an agency. We’re a team of artists who help businesses grow online.',
-    body: 'I started The Zocial Media to make content that feels human, looks sharp and moves the numbers. You work with the people who actually shoot your brand.',
+    body: 'I started The Zocial Media to make content that feels human and looks sharp. When you call, you get me and the people who will actually shoot your brand.',
   },
   {
-    key: 'crew', name: 'Crew', tag: '[shoot + content]', no: '[02]', mono: '[S]', img: '/work/p8390627.jpg', alt: 'Videographer holding a camera on a stabiliser rig', pos: '50% 35%',
-    quote: 'Shooters, writers and designers on one call sheet.',
-    body: 'Scripts get written, locations get picked, lights go up. One crew carries an idea from the first line to the last frame.',
+    key: 'crew', name: 'Crew', tag: '[your shoot days]', no: '[02]', mono: '[S]', img: '/work/p8390627.jpg', alt: 'Videographer holding a camera on a stabiliser rig', pos: '50% 35%',
+    quote: 'Shooters, writers and designers, all on your call sheet.',
+    body: 'We write the script, pick the location and set the lights. The same crew takes your idea from the first line to the last frame.',
   },
   {
-    key: 'edit', name: 'Edit', tag: '[reels + video]', no: '[03]', mono: '[E]', img: '/work/p10130153.jpg', alt: 'Red-lit edit desk with a laptop, ultrawide monitor and gimbal', pos: '50% 50%',
+    key: 'edit', name: 'Edit', tag: '[your edits]', no: '[03]', mono: '[E]', img: '/work/p10130153.jpg', alt: 'Red-lit edit desk with a laptop, ultrawide monitor and gimbal', pos: '50% 50%',
     quote: 'The cut is where a reel is won.',
-    body: 'Pacing, sound, captions and colour tuned for a phone screen. Reels, posts and festive creatives built to be watched twice.',
+    body: 'You get reels, posts and festive creatives with the pacing, sound and captions already tuned for a phone screen.',
   },
   {
-    key: 'plan', name: 'Plan', tag: '[strategy]', no: '[04]', mono: '[P]', img: '/work/p39204845.jpg', alt: 'Team planning with colourful sticky notes on a glass wall', pos: '50% 40%',
+    key: 'plan', name: 'Plan', tag: '[your plan]', no: '[04]', mono: '[P]', img: '/work/p39204845.jpg', alt: 'Team planning with colourful sticky notes on a glass wall', pos: '50% 40%',
     quote: 'Strategy first. Results are the finish line.',
-    body: 'Goals, audience, calendar and ads agreed before the first shoot, so every post has a job to do.',
+    body: 'We agree goals, audience, calendar and ads with you before the first shoot, so every post has a job to do.',
   },
 ];
 
@@ -121,6 +122,7 @@ export default function Heads() {
                   </a>
                 </div>
               </div>
+              <Link className="heads-link" href="/customers" data-cursor="click">See who we work with <span aria-hidden="true">→</span></Link>
             </div>
           </div>
         </div>

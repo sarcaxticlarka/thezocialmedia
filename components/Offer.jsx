@@ -30,8 +30,11 @@ export default function Offer() {
 
             <div className="offer-layout">
               <Scramble as="h3" className="heading-xsmall is--absolute hide_mobile" slow>[about us]</Scramble>
-              <p data-animate-p="" data-small-indent="" className="paragraph-large has--indent">
-                <strong className="has--weight-bold">To give your brand real</strong> <strong>growth</strong> and a story worth following, one shoot, one edit and one plan at a time.
+              <p data-animate-p="" data-lines="" data-small-indent="" className="paragraph-large has--indent">
+                <span className="line"><strong className="has--weight-bold">To give your brand real</strong> <strong>growth</strong></span>
+                <span className="line">and a story worth following,</span>
+                <span className="line">one shoot, one edit and one plan</span>
+                <span className="line">at a time.</span>
               </p>
               <div className="count-wrapper">
                 {STATS.map((s, i) => (

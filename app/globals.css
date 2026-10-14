@@ -665,3 +665,59 @@ blockquote.paragraph-small{font-size:1.9vw;line-height:102%}
 .review-tag{background:var(--brand-black);color:var(--brand-white)}
 .team-slide img{filter:none}
 }
+
+.heads-link{display:flex;width:fit-content;margin:2.4vw auto 0;font-family:var(--display);font-size:1.6vw;text-transform:uppercase;letter-spacing:-.02em;border-bottom:.15vw solid var(--brand-black);transition:color .3s,border-color .3s}
+.heads-link:hover{color:var(--accent);border-color:var(--accent)}
+.heads-cta{flex-direction:column;align-items:center}
+@media (max-width:767px){.heads-link{font-size:6vw;margin-top:8vw}}
+
+/* ===== /customers ===== */
+.cust-hero{position:relative;background:var(--brand-white);min-height:88svh;padding:13vw 0 6vw;overflow:hidden}
+.cust-hero__inner{position:relative;z-index:2}
+.cust-hero .heading-large{align-self:stretch;margin-top:1.4vw}
+.cust-hero__row{position:relative;display:grid;grid-template-columns:1fr 1fr;margin-top:5vw;align-items:end}
+.cust-hero .paragraph-large.has--indent{width:auto;margin-right:0;text-indent:0;grid-column:1;font-size:2.4vw}
+.cust-ghost{position:absolute;right:-1vw;bottom:-5vw;font-family:var(--display);font-size:24vw;line-height:80%;letter-spacing:-.05em;text-transform:uppercase;color:var(--white);z-index:-1;white-space:nowrap}
+.cust-segments{padding-bottom:0}
+.cust-segments .padding-block{padding-top:3vw;padding-bottom:9vw}
+.seg-text{font-size:.9vw;line-height:125%;color:var(--white)}
+.journey{position:relative;background:var(--brand-white);padding:8vw 0 10vw}
+.journey .heading-large{align-self:stretch;margin:1.6vw 0 5vw}
+.journey-head{display:grid;grid-template-columns:5vw 18vw 1fr 1fr;gap:2vw;padding:0 0 .8vw;font-size:.8vw;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#191a1999}
+.journey-list{border-top:.075vw solid var(--brand-black)}
+.journey-row{display:grid;grid-template-columns:5vw 18vw 1fr 1fr;gap:2vw;align-items:start;padding:2vw 0;border-bottom:.075vw solid var(--brand-black);transition:background .4s,padding .5s var(--ease,ease)}
+.journey-no{font-size:.9vw;font-weight:600;padding-top:.9vw;color:var(--accent)}
+.journey-title{font-family:var(--display);font-weight:400;font-size:4.4vw;line-height:88%;text-transform:uppercase;letter-spacing:-.03em;transition:color .3s}
+.journey-you,.journey-we{font-size:1.15vw;line-height:125%;max-width:24vw;padding-top:.7vw}
+.journey-row:hover{padding-left:1.2vw}
+.journey-row:hover .journey-title{color:var(--accent)}
+.cust-stories .padding-block{padding-bottom:10vw}
+.cust-stories .heading-xlarge{font-size:15vw;white-space:normal;line-height:92%}
+.cust-stories__p{max-width:36vw;margin-top:3vw;font-size:2vw;line-height:104%}
+.cust-stories__cta{display:flex;align-items:center;gap:3vw;margin-top:4vw}
+.cust-stories__cta .button-lottie-wrapper{width:20vw}
+.cust-stories__cta .heads-link{font-size:1.6vw}
+@media (max-width:767px){
+  .cust-hero{padding-top:30vw;min-height:auto}
+  .cust-hero__row{display:block}
+  .cust-hero .paragraph-large.has--indent{width:auto;font-size:6.2vw}
+  .cust-hero [data-animate-p] .line{white-space:normal}
+  .cust-ghost{font-size:46vw;bottom:-8vw}
+  .seg-text{font-size:3.2vw}
+  .journey{padding:20vw 0}
+  .journey-head{display:none}
+  .journey-row{grid-template-columns:10vw 1fr;gap:2vw 3vw;padding:6vw 0}
+  .journey-title{font-size:13vw}
+  .journey-you,.journey-we{grid-column:2;font-size:4vw;max-width:none;padding-top:0}
+  .journey-you::before{content:'You: ';font-weight:700}
+  .journey-we::before{content:'We: ';font-weight:700}
+  .journey-no{font-size:3.4vw;padding-top:3vw}
+  .cust-stories .heading-xlarge{font-size:24vw}
+  .cust-stories__p{max-width:none;font-size:7vw}
+  .cust-stories__cta{flex-direction:column;align-items:stretch;gap:6vw}
+  .cust-stories__cta .button-lottie-wrapper{width:100%}
+  .cust-stories__cta .heads-link{font-size:6vw}
+}
+
+.offer-section .paragraph-large.has--indent{width:auto;margin-right:0;text-indent:0;grid-column:2/-1}
+@media (max-width:767px){.offer-section .paragraph-large.has--indent{grid-column:auto}.offer-section [data-animate-p] .line{white-space:normal}}

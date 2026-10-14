@@ -3,13 +3,13 @@ import TopButton from './TopButton';
 import Scramble from './Scramble';
 import { FAQ, SITE } from '@/lib/data';
 
-export function Faq() {
+export function Faq({ items = FAQ, label = '[faq]' }) {
   return (
     <section className="faq-section" aria-labelledby="faq-title">
       <div className="container">
-        <Scramble as="h2" className="heading-xsmall" slow>[faq]</Scramble>
+        <Scramble as="h2" className="heading-xsmall" slow>{label}</Scramble>
         <span id="faq-title" className="sr-only">Frequently asked questions</span>
-        {FAQ.map((f) => (
+        {items.map((f) => (
           <details key={f.q} className="faq-item" data-cursor="click">
             <summary>{f.q}</summary>
             <p>{f.a}</p>
@@ -35,10 +35,11 @@ export default function Footer() {
 
           <div className="layout has--bottom-margin">
             <nav className="footer-nav-block" aria-label="Footer">
-              <LinkBlock href="#about" label="About" />
-              <LinkBlock href="#services" label="Our Services" />
-              <LinkBlock href="#portfolio" label="Portfolio" />
-              <LinkBlock href="#form" label="Contact us" />
+              <LinkBlock href="/#about" label="About" />
+              <LinkBlock href="/#services" label="Our Services" />
+              <LinkBlock href="/#portfolio" label="Portfolio" />
+              <LinkBlock href="/customers" label="Customers" />
+              <LinkBlock href="/#form" label="Contact us" />
             </nav>
             <p data-animate-p="" data-lines="" className="paragraph-xlarge has--color-white"><span className="line">Not just content.</span><span className="line"><strong>Real impact</strong> for</span><span className="line">your brand</span></p>
             <div className="contact-grid">

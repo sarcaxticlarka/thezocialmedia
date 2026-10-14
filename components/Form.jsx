@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import { SITE } from '@/lib/data';
+import { fontsReady } from '@/lib/fonts';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ export default function Form() {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const labels = [...root.current.querySelectorAll('[data-form-animate]')];
     let split, tl, dead = false;
-    (document.fonts?.ready ?? Promise.resolve()).then(() => {
+    fontsReady().then(() => {
       if (dead || !root.current) return;
       split = new SplitType(labels, { types: 'lines, words, chars', tagName: 'span' });
       tl = gsap.timeline({ scrollTrigger: { trigger: labels[0], start: 'bottom bottom', end: 'center 35%', scrub: 4 } });

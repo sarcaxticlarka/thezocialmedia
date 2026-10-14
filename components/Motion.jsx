@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import { ensureLenis } from '@/lib/lenisStore';
+import { fontsReady } from '@/lib/fonts';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,7 +105,7 @@ export default function Motion() {
         });
       } else q('[data-rise]').forEach((w) => w.classList.add('risen'));
 
-      (document.fonts?.ready ?? Promise.resolve()).then(run);
+      fontsReady().then(run);
       window.addEventListener('resize', indents);
     });
 

@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
+import { fontsReady } from '@/lib/fonts';
 
 // Mobile only: the two hero taglines alternate. Chars drop in from above (0.2s power1.out, stagger .02),
 // hold 1.2s, exit downward, then the second line. Paused while the hero is off screen.
@@ -11,7 +12,7 @@ export default function HeroLoop() {
     const first = document.querySelector('.paragraph-medium.first'), second = document.querySelector('.paragraph-medium.second');
     if (!first || !second) return;
     let splits = [], tl, io;
-    (document.fonts?.ready ?? Promise.resolve()).then(() => {
+    fontsReady().then(() => {
       splits = [new SplitType(first, { types: 'lines, words, chars', tagName: 'span' }), new SplitType(second, { types: 'lines, words, chars', tagName: 'span' })];
       [first, second].forEach((e) => { e.style.position = 'absolute'; e.style.left = 0; e.style.right = 0; e.style.overflow = 'hidden'; });
       first.parentElement.style.minHeight = '14vw';
