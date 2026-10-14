@@ -95,11 +95,14 @@ export default function Projects() {
   const [filter, setFilter] = useState('all');
   const [menu, setMenu] = useState(false);
   const [openId, setOpenId] = useState(null);
+  const [showAll, setShowAll] = useState(false);
   const sel = useRef(null), items = useRef(null);
 
   const counts = useMemo(() => Object.fromEntries(CATEGORIES.map((c) => [c.value, c.value === 'all' ? PROJECTS.length : PROJECTS.filter((p) => p.tags.includes(c.value)).length])), []);
   const current = CATEGORIES.find((c) => c.value === filter);
-  const visible = PROJECTS.filter((p) => filter === 'all' || p.tags.includes(filter));
+  const matching = PROJECTS.filter((p) => filter === 'all' || p.tags.includes(filter));
+  const LIMIT = 5;
+  const visible = showAll ? matching : matching.slice(0, LIMIT);
 
   useEffect(() => {
     // honour ?category= like the original
@@ -143,7 +146,7 @@ export default function Projects() {
               </div>
               <div className="select-items" style={{ maxHeight: menu ? `${CATEGORIES.length * 10.78}vw` : 0 }} role="listbox">
                 {CATEGORIES.filter((c) => c.value !== filter && counts[c.value] > 0).map((c) => (
-                  <div key={c.value} role="option" onClick={() => { setFilter(c.value); setOpenId(null); setMenu(false); scrollToTarget(sel.current, { offset: -20 }); }}>
+                  <div key={c.value} role="option" onClick={() => { setFilter(c.value); setOpenId(null); setShowAll(false); setMenu(false); scrollToTarget(sel.current, { offset: -20 }); }}>
                     <Header c={c} />
                   </div>
                 ))}
@@ -157,6 +160,12 @@ export default function Projects() {
               return show ? <Row key={p.id} p={p} open={openId === p.id} onToggle={() => setOpenId(openId === p.id ? null : p.id)} /> : null;
             })}
           </ul>
+
+          {matching.length > LIMIT && (
+            <button type="button" className="more-btn" data-cursor="click" aria-expanded={showAll} onClick={() => { setShowAll((v) => !v); requestAnimationFrame(() => ScrollTrigger.refresh()); }}>
+              {showAll ? 'Show fewer' : `Show all ${matching.length}`} <span aria-hidden="true">{showAll ? '↑' : '↓'}</span>
+            </button>
+          )}
 
           <div className="projects-cta">
             <div className="button-lottie-wrapper is--centered">
